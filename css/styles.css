@@ -1,0 +1,417 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #000;
+    color: white;
+    overflow-x: hidden;
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.7)
+    );
+}
+
+.background-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.netflix-logo {
+    color: #e50914;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.language-select {
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid #333;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.sign-in-btn {
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sign-in-btn:hover {
+    background: #f40612;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 640px;
+    padding: 0 20px;
+    z-index: 5;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.email-form {
+    display: flex;
+    gap: 0;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.email-input {
+    flex: 1;
+    padding: 16px 20px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-right: none;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    border-radius: 4px 0 0 4px;
+}
+
+.email-input::placeholder {
+    color: #999;
+}
+
+.cta-button {
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cta-button:hover {
+    background: #f40612;
+}
+
+.arrow {
+    font-size: 20px;
+}
+
+/* Container for sections */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+/* Trending Section */
+.trending-section {
+    background-color: #141414;
+    padding: 60px 0;
+}
+
+.trending-section .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #e5e5e5;
+}
+
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-wrapper {
+    flex: 1;
+    overflow: hidden;
+    margin: 0 40px;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 8px;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.movie-card {
+    position: relative;
+    min-width: 160px;
+    height: 240px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.rank-number {
+    position: absolute;
+    left: -25px;
+    bottom: 0;
+    font-size: 120px;
+    font-weight: 900;
+    color: #1a1a1a;
+    text-shadow: -2px -2px 0 #e5e5e5, 2px -2px 0 #e5e5e5, -2px 2px 0 #e5e5e5, 2px 2px 0 #e5e5e5;
+    line-height: 1;
+    z-index: 5;
+}
+
+.movie-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: white;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: background-color 0.3s ease;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+/* Reasons Section */
+.reasons-section {
+    background-color: #141414;
+    padding: 60px 0;
+}
+
+.reasons-section .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #e5e5e5;
+}
+
+.reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.reason-card {
+    background: linear-gradient(149deg, #192247 0%, #210e17 99%);
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+}
+
+.reason-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.reason-description {
+    font-size: 16px;
+    line-height: 1.4;
+    color: #b3b3b3;
+    margin-bottom: 20px;
+}
+
+.reason-icon {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    font-size: 48px;
+    opacity: 0.7;
+}
+
+.tv-icon, .download-icon, .devices-icon, .kids-icon {
+    filter: grayscale(100%) brightness(1.2);
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .email-form {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .email-input {
+        border-radius: 4px;
+        border-right: 1px solid #333;
+    }
+
+    .cta-button {
+        border-radius: 4px;
+        justify-content: center;
+    }
+
+    .header {
+        padding: 20px;
+    }
+
+    .netflix-logo {
+        font-size: 24px;
+    }
+
+    /* Trending Section Mobile */
+    .container {
+        padding: 0 20px;
+    }
+    
+    .carousel-wrapper {
+        margin: 0 30px;
+    }
+    
+    .movie-card {
+        min-width: 120px;
+        height: 180px;
+    }
+    
+    .rank-number {
+        font-size: 80px;
+        left: -15px;
+    }
+    
+    .reasons-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .movie-card {
+        min-width: 140px;
+        height: 210px;
+    }
+    
+    .rank-number {
+        font-size: 100px;
+        left: -20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-wrapper {
+        margin: 0 25px;
+    }
+    
+    .movie-card {
+        min-width: 100px;
+        height: 150px;
+    }
+    
+    .rank-number {
+        font-size: 60px;
+        left: -12px;
+    }
+    
+    .trending-section .section-title,
+    .reasons-section .section-title {
+        font-size: 18px;
+    }
+}
